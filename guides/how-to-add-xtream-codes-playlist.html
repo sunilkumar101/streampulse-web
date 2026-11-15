@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Add an Xtream Codes Playlist (Step-by-Step) | StreamPulse</title><meta name="description" content="Add your Xtream Codes login to an M3U player in under a minute: server URL format, username, password, EPG and troubleshooting.">
+<link rel="canonical" href="https://sunilkumar101.github.io/streampulse-web/guides/how-to-add-xtream-codes-playlist.html"><meta name="theme-color" content="#080A0F">
+<link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href=".././"><i>▶</i><span>Stream<b>Pulse</b></span></a>
+<nav><a href=".././#features">Features</a><a href="../guides/">Guides</a><a href="../support.html">Support</a></nav></div></header>
+<main class="wrap"><article><h1>How to add an Xtream Codes playlist</h1>
+<p>Xtream Codes is a login format used by many playlist providers. Instead of one long M3U URL you get a <b>server URL</b>, a <b>username</b> and a <b>password</b>.</p>
+<h2>1. Find your details</h2><p>Your provider's welcome email usually lists <code>http://host:port</code>, a username and a password. If you only have an M3U link, the username and password are the <code>username=</code> and <code>password=</code> values inside it.</p>
+<h2>2. Enter them in StreamPulse</h2><p>Open the app → <b>Xtream Codes API</b> card → paste the server URL (including the port), username and password → <b>Connect &amp; Load Channels</b>. Leave “Save credentials securely” on to reconnect automatically; the password is stored in your device keychain only.</p>
+<h2>3. EPG is automatic</h2><p>StreamPulse downloads the provider's XMLTV guide from <code>xmltv.php</code> and matches it to channels in the background.</p>
+<h2>Troubleshooting</h2><ul><li><b>Invalid login:</b> check for trailing spaces and that the account is active.</li><li><b>No catch-up:</b> only channels with archive enabled by the provider show the Catch-Up (7d) tab.</li><li><b>403 errors:</b> set a custom User-Agent in Settings.</li></ul></article></main>
+<footer><div class="wrap"><span>© 2026 StreamPulse</span><a href="../privacy-policy.html">Privacy Policy</a>
+<a href="../terms.html">Terms</a><a href="../support.html">Support &amp; account deletion</a></div></footer></body></html>
