@@ -8,6 +8,54 @@
 <main class="wrap"><article>
 <h1>Support</h1>
 <p>Need help adding a playlist, fixing buffering or pairing your TV? Email <a href="mailto:support@streampulse.app">support@streampulse.app</a> — we reply within 48 hours.</p>
+<nav class="toc"><a href="#how-it-works">How StreamPulse works</a> · <a href="#m3u">Add M3U / local files</a> · <a href="#xtream">Connect Xtream API</a> · <a href="#phone-to-tv">Phone-to-TV QR transfer</a> · <a href="#delete">Delete my account</a></nav>
+
+<h2 id="how-it-works">1. How StreamPulse works (Bring Your Own Playlist)</h2>
+<p>StreamPulse is a standalone video player, like VLC. It does <b>not</b> provide, sell or include any playlists, channels, subscriptions or media. You add playlists you already have the right to watch.</p>
+<ul>
+<li>Add an M3U playlist from a TV service you subscribe to, from your own home media server, or from a file on your device.</li>
+<li>Or sign in with the Xtream Codes details given to you by your own TV service.</li>
+<li>Logins are stored only in your device's secure keychain and are never sent to us.</li>
+<li>Want to try the player first? Tap <b>Launch Instant Demo</b> — it plays Creative Commons (CC-BY) open movies by the Blender Foundation.</li>
+</ul>
+
+<h2 id="m3u">2. Add an M3U / M3U8 playlist or local file</h2>
+<ol>
+<li><b>Get your playlist link</b> from your TV operator's customer portal, or from a home media server (such as Plex or Jellyfin) running on your own network.</li>
+<li><b>Copy the link.</b> It usually ends in <code>.m3u</code> or <code>.m3u8</code>.</li>
+<li><b>Paste it into StreamPulse</b> → <i>M3U / M3U8 Playlist</i>. If a link is on your clipboard, tap <i>Paste URL from Clipboard</i>. StreamPulse checks the link first and tells you if it is a valid playlist, a web page, or unreachable.</li>
+<li><b>Local files:</b> enter the path of an <code>.m3u</code> file stored on your device.</li>
+</ol>
+<p>A valid playlist starts with <code>#EXTM3U</code>; each <code>#EXTINF</code> line names the next address:</p>
+<pre><code>#EXTM3U
+#EXTINF:-1 tvg-id="news.example" group-title="News",Example News HD
+https://media.example.com/live/news/index.m3u8
+#EXTINF:-1 tvg-id="movies.example" group-title="Movies",Home Movie Night
+http://192.168.1.20:8096/videos/movie-night.mkv</code></pre>
+
+<h2 id="xtream">3. Connect with the Xtream Codes API</h2>
+<p>Your TV service may give you three details, usually in its welcome email or customer portal:</p>
+<ul>
+<li><b>Server URL</b> — the address and port only, e.g. <code>http://example-server:8080</code>. No <code>/get.php</code>, no username in the address, no trailing <code>/</code>.</li>
+<li><b>Username</b> and <b>Password</b> — stored only in your device's secure keychain.</li>
+</ul>
+<p>In the app, open <i>Need help finding playlist credentials?</i> → <i>Xtream API</i> and tap <b>Test Connection &amp; Diagnose Error</b>. It checks the address format, http vs https and whether the server answers — without sending your username or password. Common fixes:</p>
+<ul>
+<li><b>Invalid URL format / typo</b> — copy the address again from your service.</li>
+<li><b>Use http:// instead of https://</b> — many servers do not support secure connections.</li>
+<li><b>Connection refused</b> — the port number (after the <code>:</code>) is wrong.</li>
+<li><b>This is a website, not an Xtream server</b> — the address is incomplete; ask your service for the exact server URL.</li>
+<li><b>Server unreachable</b> — check your Wi-Fi, or set a custom User-Agent in Settings → Playback.</li>
+</ul>
+
+<h2 id="phone-to-tv">4. Phone-to-TV Wi-Fi QR transfer</h2>
+<ol>
+<li>Connect your phone and your TV (or TV box) to the <b>same Wi-Fi</b>.</li>
+<li>On the TV: open StreamPulse → <i>Phone Wi-Fi QR Sync</i> → <i>Start Companion Server</i>. A QR code and pairing code appear.</li>
+<li>On the phone: open StreamPulse → <i>Phone Wi-Fi QR Sync</i> and scan the QR code on the TV.</li>
+<li>Choose <i>M3U URL</i> or <i>Xtream</i>, enter the details and tap <b>Send to TV</b>.</li>
+</ol>
+<p>The transfer stays inside your home network and stops when you close the screen. Nothing is uploaded.</p>
 <h2>Quick fixes</h2>
 <ul>
 <li><b>Stream shows HTTP 403:</b> Settings → Playback → set a custom User-Agent (for example <code>VLC/3.0</code>) or Referer for the playlist.</li>
@@ -23,7 +71,7 @@
 <input type="hidden" name="request" value="DELETE_ACCOUNT">
 <p><button class="btn neon" type="submit">Request account deletion</button></p>
 </form>
-<p class="legal">You can also delete your account inside the app: Settings → Security &amp; Legal → Delete cloud account.</p>
+<p class="legal">You can also delete your account inside the app: Settings → Security &amp; Legal → Cloud Sync → Delete cloud account.</p>
 </article></main>
 <footer><div class="wrap"><span>© 2026 StreamPulse</span><a href="privacy-policy.html">Privacy Policy</a>
 <a href="terms.html">Terms</a><a href="support.html">Support &amp; account deletion</a></div></footer></body></html>
